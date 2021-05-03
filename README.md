@@ -14,7 +14,7 @@ Tech Elevator Student Book
 Student Dashboard  
 <https://bos.techelevator.com/>
 
-## GETTING NEW MATERIAL
+## GETTING NEW MATERIAL LIKE EXERCISES AND LECTURE CODE
 
 In Terminal:
 
