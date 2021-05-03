@@ -20,6 +20,7 @@ echo "Setting Up Global Configuration Settings"
 
 git config --global user.name "${name}"
 git config --global user.email "${email}"
+git config --global init.defaultBranch main
 
 echo "Setting up Git Editors and Tools..."
 
