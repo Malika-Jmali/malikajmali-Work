@@ -10,8 +10,15 @@ public class Exercises {
 	 sleepIn(false, true) → true
 	 */
 	public boolean sleepIn(boolean weekday, boolean vacation) {
-		return false;
+		if(weekday == false){
+			return true;
+		}else if(vacation == true){
+			return true;
+		}else{
+			return false;
+		}
 	}
+
 
 	/*
 	 2. We have two monkeys, a and b, and the parameters aSmile and bSmile indicate if each is smiling.
@@ -287,7 +294,6 @@ public class Exercises {
 	public boolean more20(int n) {
 		return false;
 	}
-
 	/*
 	 25. Return true if the given non-negative number is a multiple of 3 or 5, but not both.
 	 (Hint: Think "mod".)
