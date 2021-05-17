@@ -10,7 +10,7 @@ public class Exercises {
 	 firstLast6([13, 6, 1, 2, 3]) → false
 	 */
 	public boolean firstLast6(int[] nums) {
-		return false;
+		return (nums[0] == 6 || nums[nums.length-1] == 6);
 	}
 
 	/*
@@ -21,7 +21,13 @@ public class Exercises {
 	 sameFirstLast([1, 2, 1]) → true
 	 */
 	public boolean sameFirstLast(int[] nums) {
-		return false;
+		return (nums.length >= 1 && nums[0] ==  nums[nums.length-1]);}
+
+	// Return an int array length 3 containing the first 3 digits of pi, {3, 1, 4}.
+	public int[] makePi()
+	{
+		int[] pi = {3, 1, 4};
+		return pi;
 	}
 
 	/*
@@ -29,7 +35,8 @@ public class Exercises {
 	 makePi() → [3, 1, 4]
 	 */
 	public int[] makePi() {
-		return new int[] {};
+		int[] pi = {3, 1, 4};
+		return pi;
 	}
 
 	/*
@@ -40,7 +47,7 @@ public class Exercises {
 	 commonEnd([1, 2, 3], [1, 3]) → true
 	 */
 	public boolean commonEnd(int[] a, int[] b) {
-		return false;
+		return (a[0] == b[0] || a[a.length-1] == b[b.length-1]);
 	}
 
 	/*
@@ -50,9 +57,7 @@ public class Exercises {
 	 sum3([7, 0, 0]) → 7
 	 */
 	public int sum3(int[] nums) {
-		return 0;
-	}
-
+		return (nums[0] + nums[1] + nums[2]);
 	/*
 	 6. Given an array of ints length 3, return an array with the elements "rotated left" so {1, 2, 3} 
 	 yields {2, 3, 1}.
@@ -61,7 +66,9 @@ public class Exercises {
 	 rotateLeft3([7, 0, 0]) → [0, 0, 7]
 	 */
 	public int[] rotateLeft3(int[] nums) {
-		return new int[] {};
+
+			int[] rotated = {nums[1], nums[2], nums[0]};
+			return rotated;
 	}
 
 	/*
@@ -72,7 +79,8 @@ public class Exercises {
 	 reverse3([7, 0, 0]) → [0, 0, 7]
 	 */
 	public int[] reverse3(int[] nums) {
-		return new int[] {};
+			int[] reversed = {nums[2], nums[1], nums[0]};
+			return reversed;
 	}
 
 	/*
@@ -83,7 +91,13 @@ public class Exercises {
 	 maxEnd3([2, 11, 3]) → [3, 3, 3]
 	 */
 	public int[] maxEnd3(int[] nums) {
-		return new int[] {};
+			int[] maxVal = new int[3];
+			maxVal[0] = nums[0];
+			if(nums[2] >= maxVal[0])
+				maxVal[0] = nums[2];
+			maxVal[1] = maxVal[0];
+			maxVal[2] = maxVal[0];
+			return maxVal;
 	}
 
 	/*
@@ -94,7 +108,11 @@ public class Exercises {
 	 sum2([1, 1, 1, 1]) → 2
 	 */
 	public int sum2(int[] nums) {
-		return 0;
+			if(nums.length >= 2)
+				return (nums[0] + nums[1]);
+			if(nums.length == 1)
+				return nums[0];
+			return 0;
 	}
 
 	/*
@@ -105,7 +123,8 @@ public class Exercises {
 	 middleWay([5, 2, 9], [1, 4, 5]) → [2, 4]
 	 */
 	public int[] middleWay(int[] a, int[] b) {
-		return new int[] {};
+			int[] mids = {a[1], b[1]};
+			return mids;
 	}
 
 	/*
@@ -116,8 +135,16 @@ public class Exercises {
 	 countEvens([1, 3, 5]) → 0
 	 */
 	public int countEvens(int[] nums) {
-		return 0;
-	}
+
+			int even = 0;
+			for (int count=0; count < nums.length; count++) {
+				if (nums[count] % 2 == 0)
+					even++;
+
+		}
+			return even;
+
+		}
 
 	/*
 	 12. Return the sum of the numbers in the array, returning 0 for an empty array. Except the number 
@@ -130,7 +157,14 @@ public class Exercises {
 	 sum13([1, 2, 2, 1, 13, 3, 4]) → 10
 	 */
 	public int sum13(int[] nums) {
-		return 0;
+			int sum = 0;
+			for (int i = 0; i < nums.length; i++) {
+				if(nums[i] != 13) {
+					sum += nums[i];
+					sum -= nums[i];
+				}
+			}
+			return sum
 	}
 
 	/*
@@ -140,7 +174,9 @@ public class Exercises {
 	 has22([2, 1, 2]) → false
 	 */
 	public boolean has22(int[] nums) {
-		return false;
+			if(nums[0] == 2 || nums[0] == 3)
+				return true;
+			return (nums[1] == 2 || nums[1] == 3);
 	}
 	
 	/*
@@ -150,8 +186,13 @@ public class Exercises {
 	 lucky13([1, 2, 4]) → false
 	 */
 	public boolean lucky13(int[] nums) {
-		return false;
-	}
+			boolean result = true;
+			for (int i =0;i<nums.length ;i++)
+				if ( nums[i] == 1 || nums[i] == 3)
+					result = false;
+			return result;
+
+		}
 
 	/*
 	 15. Given an array of ints, return true if the sum of all the 2's in the array is exactly 8.
@@ -160,7 +201,16 @@ public class Exercises {
 	 sum28([1, 2, 3, 4]) → false
 	 */
 	public boolean sum28(int[] nums) {
-		return false;
-	}
+			int sum = 0;
+			boolean is8 = false;
+			for (int i = 0; i < nums.length; i++) {
+				if (nums[i] == 2)
+					sum += 2;
+			}
+			if (sum == 8)
+				is8 = true;
+			return is8;
+
+		}
 
 }

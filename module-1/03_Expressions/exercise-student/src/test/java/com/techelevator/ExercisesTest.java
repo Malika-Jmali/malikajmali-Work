@@ -124,7 +124,8 @@ public class ExercisesTest {
 		assertEquals("Input: posNeg(-1, 1, false)", true, exercises.posNeg(-1, 1, false));
 		assertEquals("Input: posNeg(-1, 1, true)", false, exercises.posNeg(-1, 1, true));
 		assertEquals("Input: posNeg(-4, -5, true)", true, exercises.posNeg(-4, -5, true));
-		assertEquals("Input: posNeg(-4, -5, false)", false, exercises.posNeg(-4, -5, false));
+		assertEqu
+	als("Input: posNeg(-4, -5, false)", false, exercises.posNeg(-4, -5, false));
 		assertEquals("Input: posNeg(9, 12, true)", false, exercises.posNeg(9, 12, true));
 		assertEquals("Input: posNeg(9, 12, false)", false, exercises.posNeg(9, 12, false));
 	}
