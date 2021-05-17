@@ -24,11 +24,11 @@ public class Exercises {
 		return (nums.length >= 1 && nums[0] ==  nums[nums.length-1]);}
 
 	// Return an int array length 3 containing the first 3 digits of pi, {3, 1, 4}.
-	public int[] makePi()
+	/*public int[] makePi()
 	{
 		int[] pi = {3, 1, 4};
 		return pi;
-	}
+	}*/
 
 	/*
 	 3. Return an int array length 3 containing the first 3 digits of pi, {3, 1, 4}.
@@ -57,7 +57,7 @@ public class Exercises {
 	 sum3([7, 0, 0]) → 7
 	 */
 	public int sum3(int[] nums) {
-		return (nums[0] + nums[1] + nums[2]);
+		return (nums[0] + nums[1] + nums[2]);}
 	/*
 	 6. Given an array of ints length 3, return an array with the elements "rotated left" so {1, 2, 3} 
 	 yields {2, 3, 1}.
@@ -157,14 +157,15 @@ public class Exercises {
 	 sum13([1, 2, 2, 1, 13, 3, 4]) → 10
 	 */
 	public int sum13(int[] nums) {
-			int sum = 0;
-			for (int i = 0; i < nums.length; i++) {
-				if(nums[i] != 13) {
-					sum += nums[i];
-					sum -= nums[i];
-				}
-			}
-			return sum
+		int sum = 0;
+		for(int i = 0; i < nums.length; i++)
+		{
+			if(nums[i] == 13)
+				i++;
+			else
+				sum += nums[i];
+		}
+		return sum;
 	}
 
 	/*
@@ -174,9 +175,12 @@ public class Exercises {
 	 has22([2, 1, 2]) → false
 	 */
 	public boolean has22(int[] nums) {
-			if(nums[0] == 2 || nums[0] == 3)
+		for(int i = 0; i < nums.length-1; i++)
+		{
+			if(nums[i] == 2 && nums[i+1] == 2)
 				return true;
-			return (nums[1] == 2 || nums[1] == 3);
+		}
+		return false;
 	}
 	
 	/*
