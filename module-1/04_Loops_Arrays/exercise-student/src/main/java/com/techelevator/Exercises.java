@@ -28,6 +28,10 @@ public class Exercises {
 	{
 		int[] pi = {3, 1, 4};
 		return pi;
+
+
+
+
 	}*/
 
 	/*
@@ -56,6 +60,9 @@ public class Exercises {
 	 sum3([5, 11, 2]) → 18
 	 sum3([7, 0, 0]) → 7
 	 */
+
+
+
 	public int sum3(int[] nums) {
 		return (nums[0] + nums[1] + nums[2]);}
 	/*
@@ -95,6 +102,9 @@ public class Exercises {
 			maxVal[0] = nums[0];
 			if(nums[2] >= maxVal[0])
 				maxVal[0] = nums[2];
+
+
+			
 			maxVal[1] = maxVal[0];
 			maxVal[2] = maxVal[0];
 			return maxVal;
