@@ -33,7 +33,7 @@ public class BankCustomerTest {
         }
 
         try {
-            creditCard = Class.forName("com.techelevator.CreditCardAccount");
+            creditCard = Class.forName("com.techelevator.CreditCardAccount.java");
         } catch (ClassNotFoundException e) {
             fail(e.getMessage());
         }

@@ -17,7 +17,7 @@ public class CheckingAccount extends BankAccount {
         if (getBalance() - amountToWithdraw > -100) {
 
             super.withdraw(amountToWithdraw);
-           
+
             if (getBalance() < 0) {
                 super.withdraw(10);
             }

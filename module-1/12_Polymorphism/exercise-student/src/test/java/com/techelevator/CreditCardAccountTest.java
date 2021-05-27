@@ -21,16 +21,16 @@ public class CreditCardAccountTest {
     @Before
     public void classShouldExist() {
         try {
-            creditCard = Class.forName("com.techelevator.CreditCardAccount");
+            creditCard = Class.forName("com.techelevator.CreditCardAccount.java");
         } catch (ClassNotFoundException e) {
-            fail("com.techelevator.CreditCardAccount class does not exist");
+            fail("com.techelevator.CreditCardAccount.java class does not exist");
         }
     }
 
     @Test
     public void testConstructor() throws IllegalAccessException, InvocationTargetException, InstantiationException, NoSuchMethodException {
         Constructor constructor = SafeReflection.getConstructor(creditCard,String.class,String.class);
-        assertNotNull("CreditCardAccount should contain a 2 argument constructor that sets account holder name and number", constructor);
+        assertNotNull("CreditCardAccount.java should contain a 2 argument constructor that sets account holder name and number", constructor);
 
         Object sut = constructor.newInstance("TEST","6011222233334444");
 

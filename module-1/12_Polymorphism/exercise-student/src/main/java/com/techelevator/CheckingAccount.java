@@ -10,7 +10,6 @@ public class CheckingAccount extends BankAccount {
         super(accountHolder, accountNumber);
     }
 
-    @Override
     public int withdraw(int amountToWithdraw) {
         // Only allow the withdraw if the balance isn't going to go below -$100
         if (getBalance() - amountToWithdraw > -100) {

@@ -10,7 +10,6 @@ public class SavingsAccount extends BankAccount {
         super(accountHolder, accountNumber);
     }
 
-    @Override
     public int withdraw(int amountToWithdraw) {
         // only perform transaction of positive $ and room for fee
         if (getBalance() - amountToWithdraw >= 2) {
