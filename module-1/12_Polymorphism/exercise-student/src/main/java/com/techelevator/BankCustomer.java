@@ -1,11 +1,15 @@
 package com.techelevator;
 
+import javax.print.DocFlavor;
+import java.util.ArrayList;
+import java.util.List;
+
 public class BankCustomer implements Accountable {
 
     private String name;
     private String address;
     private String phoneNumber;
-    private Accountable accounts;
+    private List<Accountable> accounts = new ArrayList<>();
 
     public String getName() {
         return name;
@@ -19,8 +23,9 @@ public class BankCustomer implements Accountable {
         return phoneNumber;
     }
 
-    public Accountable getAccounts() {
-        return accounts;
+    public Accountable[] getAccounts() {
+
+        return accounts.toArray(new Accountable[accounts.size()]);
     }
 
     public void setName(String name) {
@@ -35,10 +40,28 @@ public class BankCustomer implements Accountable {
         this.phoneNumber = phoneNumber;
     }
 
-    public void addAccount(Accountable newAccount){
+    public void addAccount(Accountable newAccount) {
+        accounts.add(newAccount);
     }
 
-    public void isVip (){
+    public boolean isVip() {
+        if (getBalance() >= 25000) {
 
-    };
+            return true;
+        }
+        return false;
+    }
+
+
+    @Override
+    public int getBalance() {
+        int balance = 0;
+
+        for (Accountable account : accounts) {
+            balance += account.getBalance();
+        }
+        return balance;
+    }
+
+
 }
