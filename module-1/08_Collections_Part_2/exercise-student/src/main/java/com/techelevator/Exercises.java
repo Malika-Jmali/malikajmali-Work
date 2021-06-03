@@ -35,24 +35,29 @@ public class Exercises {
 	 *
 	 */
 	public String animalGroupName(String animalName) {
-		Map<String, String> animalGroupName = new TreeMap<String, String>(String.CASE_INSENSITIVE_ORDER);
+		Map<String, String> animalGroup = new HashMap<>();
 
-		animalGroupName.put("Rhino", "Crash");
-		animalGroupName.put("Giraffe", "Tower");
-		animalGroupName.put("Elephant", "Herd");
-		animalGroupName.put("Lion", "Pride");
-		animalGroupName.put("Crow", "Murder");
-		animalGroupName.put("Pigeon","Kit");
-		animalGroupName.put("Flamingo","Pat");
-		animalGroupName.put("Deer", "Herd");
-		animalGroupName.put("Dog", "Pack");
-		animalGroupName.put("Crocodile", "Float");
+		animalGroup.put("rhino", "Crash");
+		animalGroup.put("giraffe", "Tower");
+		animalGroup.put("elephant", "Herd");
+		animalGroup.put("lion", "Pride");
+		animalGroup.put("crow", "Murder");
+		animalGroup.put("pigeon","Kit");
+		animalGroup.put("flamingo","Pat");
+		animalGroup.put("deer", "Herd");
+		animalGroup.put("dog", "Pack");
+		animalGroup.put("crocodile", "Float");
 
-		if (!animalGroupName.containsKey(animalName)){
-			return "unknown";
+		if (animalName == null){
+			return "unknown";}
+		 if (animalGroup.containsKey(animalName.toLowerCase())){
+			return animalGroup.get(animalName.toLowerCase());
 		}
-		return animalGroupName.get(animalName);
+		return  "unknown";
+
+
 	}
+
 
 	/*
 	 * Given an String item number (a.k.a. SKU), return the discount percentage if the item is on sale.
@@ -77,17 +82,20 @@ public class Exercises {
 	 *
 	 */
 	public double isItOnSale(String itemNumber) {
-		Map<String, Double> isItOnSale = new HashMap<>();
+		Map<String, Double> saleItems = new HashMap<>();
 
-		isItOnSale.put("KITCHEN4001", 0.20);
-		isItOnSale.put("GARAGE1070", 0.15);
-		isItOnSale.put("LIVINGROOM", 0.10);
-		isItOnSale.put("KITCHEN6073", 0.40);
-		isItOnSale.put("BEDROOM3434", 0.60);
-		isItOnSale.put("BATH0073", 0.15);
+		saleItems.put("kitchen4001", 0.20);
+		saleItems.put("garage1070", 0.15);
+		saleItems.put("livingroom", 0.10);
+		saleItems.put("kitchen6073", 0.40);
+		saleItems.put("bedroom3434", 0.60);
+		saleItems.put("bath0073", 0.15);
 
-		if (isItOnSale.containsKey(itemNumber.toUpperCase())){
-			return isItOnSale.get(itemNumber.toUpperCase());
+		if (itemNumber == null){
+			return 0.00;
+		}
+			if (saleItems.containsKey(itemNumber.toLowerCase())){
+			return saleItems.get(itemNumber.toLowerCase());
 		}
 		return 0.00;
 	}
@@ -306,14 +314,23 @@ public class Exercises {
 		Map<String, Integer> keyAndCount = new HashMap<>();
 
 
-		for (String key : words) {
-			if (words.length <= 2) {
-				keyAndCount.put(key, 0);
-				keyAndCount.put(key + 1, 0);
+		for (String word : words) {
+			if (word.length () < 4) {
+				keyAndCount.put(word, 0);
+			}
+			if(word.length ()>=4){
+				String lastTwoLetters= word.substring(word.length()-2);
+				int count = 0;
+				for (int i=0; i< word.length()-2; i++)
+					if(word.substring(i, i+2).equals(lastTwoLetters)){
+						count++;
+					}
+				keyAndCount.put(word, count);
+
 			}
 		}
 
-		return null;
+		return keyAndCount;
 	}
 
 }

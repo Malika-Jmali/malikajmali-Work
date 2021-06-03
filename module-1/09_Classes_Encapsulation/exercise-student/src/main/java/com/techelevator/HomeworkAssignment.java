@@ -2,40 +2,38 @@ package com.techelevator;
 
 public class HomeworkAssignment {
     //instance variables
-    private int totalMarks;
+    private int earnedMarks;
     private int possibleMarks;
     private String submitterName;
+    private String letterGrade;
+
+
 
 
     //letterGrade method
     //methods
     public String getLetterGrade () {
-        //letterGrade = totalMarks / possibleMarks;
-        if (((1.0 * totalMarks / possibleMarks) * 100) >= 90) {
+       double grade = 100* earnedMarks / possibleMarks;
+        if ( grade >= 90) {
             return "A";
-        } else if ((((double)totalMarks/ possibleMarks) * 100) >= 80) {
+        } else if ((grade) >= 80) {
             return "B";
-        } else if (((1.0 * totalMarks / possibleMarks) * 100) >= 70) {
+        } else if ((grade) >= 70) {
             return "C";
-        } else if (((1.0 * totalMarks / possibleMarks) * 100) >= 60) {
+        } else if ((grade) >= 60) {
             return "D";
         } else {
             return "F";
         }
     }
     //constructor
-    public HomeworkAssignment (int possibleMarks) {
+    public HomeworkAssignment (int possibleMarks, String submitterName) {
         this.possibleMarks = possibleMarks;
+        this.submitterName = submitterName;
     }
 
-
-    public int getTotalMarks() {
-        return totalMarks;
-    }
-
-
-    public void setTotalMarks(int totalMarks) {
-        this.totalMarks = totalMarks;
+    public int getEarnedMarks() {
+        return earnedMarks;
     }
 
 
@@ -43,14 +41,11 @@ public class HomeworkAssignment {
         return submitterName;
     }
 
-
-    public void setSubmitterName(String submitterName) {
-        this.submitterName = submitterName;
-    }
-
-
     public int getPossibleMarks() {
         return possibleMarks;
     }
 
+    public void setEarnedMarks(int earnedMarks) {
+        this.earnedMarks = earnedMarks;
+    }
 }
