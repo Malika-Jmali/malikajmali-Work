@@ -67,7 +67,7 @@ VALUES((SELECT film_id FROM film WHERE title = 'Euclidean PI'),2);
 -- deleted from the film table. Delete "Euclidean PI" from the film table.
 -- (Did it succeed? Why?)
 -- <YOUR ANSWER HERE>
--- failed due to being referenced in other tables.
+-- because the key exists on another table
 DELETE FROM film WHERE title = 'Euclidean PI'; 
 -- failed due to being referenced in other tables.
 -- 9. Delete Mathmagical from the category table.
@@ -79,18 +79,21 @@ WHERE name = 'Mathmagical';
 -- 10. Delete all links to Mathmagical in the film_category tale.
 -- (Did it succeed? Why?)
 -- <YOUR ANSWER HERE>
+-- yes because its a primary key
 DELETE FROM film_category WHERE category_id = 18;
 -- 11. Retry deleting Mathmagical from the category table, followed by retrying
 -- to delete "Euclidean PI".
 -- (Did either deletes succeed? Why?)
 -- <YOUR ANSWER HERE>
--- failed due to being referenced in other tables.
+-- The first one succeeds because its no longer being used by the foreign key in the film category table, and the second one fails for the same reason it is still being used by film_category
 DELETE FROM category WHERE name = 'Mathmagical';
 
 DELETE FROM film WHERE title = 'Euclidean PI';
 -- 12. Check database metadata to determine all constraints of the film id, and
 -- describe any remaining adjustments needed before the film "Euclidean PI" can
 -- be removed from the film table.
+--When transaction is successful, COMMIT is applied, and when transaction is aborted, ROLLBACK occurs.
+
 BEGIN TRANSACTION;
 
 COMMIT;
