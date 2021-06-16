@@ -74,14 +74,14 @@ public class JDBCCityDAO implements CityDAO {
 		String sqlFindCityByCountryCode = "SELECT id, name, countrycode, district, population "+
 										   "FROM city "+
 										   "WHERE countrycode = ?";
-		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlFindCityByCountryCode, countryCode);
-		while(results.next()) {
+		SqlRowSetwhile(results.next()) {
 			City theCity = mapRowToCity(results);
 			cities.add(theCity);
 		}
 
 
-		return cities;
+		return cities; results = jdbcTemplate.queryForRowSet(sqlFindCityByCountryCode, countryCode);
+
 	}
 
 	@Override

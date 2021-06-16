@@ -1,4 +1,8 @@
-     
+DROP TABLE IF EXISTS employee_project;
+DROP TABLE IF EXISTS project;
+DROP TABLE IF EXISTS employee;
+DROP TABLE IF EXISTS job_title;
+DROP TABLE IF EXISTS department;   
 CREATE TABLE department (
         department_id SERIAL NOT NULL,
         name varchar(100) NOT NULL,
@@ -10,7 +14,7 @@ CREATE TABLE job_title (
         job_title varchar(100) NOT NULL,
         CONSTRAINT pk_job_title_title_id PRIMARY KEY (title_id)
 );
-?
+
 CREATE TABLE employee (
         employee_id SERIAL NOT NULL,
         title_id int NOT NULL,
@@ -37,8 +41,7 @@ CREATE TABLE employee_project (
         CONSTRAINT fk_employee_employee_id FOREIGN KEY (employee_id) REFERENCES employee(employee_id),
         CONSTRAINT fk_project_project_id FOREIGN KEY (project_id) REFERENCES project(project_id)
 );
-?
-?
+
 INSERT INTO job_title (title_id, job_title) VALUES (1, 'Lead Scientist');
 INSERT INTO job_title (title_id, job_title) VALUES (2, 'Juinor Scientist');
 INSERT INTO job_title (title_id, job_title) VALUES (3, 'Senior Scientist');
@@ -47,11 +50,15 @@ INSERT INTO job_title (title_id, job_title) VALUES (5, 'Junior Engineer');
 INSERT INTO job_title (title_id, job_title) VALUES (6, 'Senior Engineer');
 INSERT INTO job_title (title_id, job_title) VALUES (7, 'Lead Engineer');
 INSERT INTO job_title (title_id, job_title) VALUES (8, 'Janitor');
-?
+
+select * from job_title;
+
 INSERT INTO department (department_id, name) VALUES (1, 'Engineering');
 INSERT INTO department (department_id, name) VALUES (2, 'Science');
-INSERT INTO department (department_id, name) VALUES (3, 'Maintenance');
-?
+INSERT INTO department (department_id, name) VALUES (4, 'Maintenance');
+select * from department;
+
+
 INSERT INTO employee (employee_id, title_id, last_name, first_name, gender, date_of_birth, department_id) VALUES (1, 1, 'Jmali', 'Malika', 'Female', TO_DATE('19/12/1990', 'DD/MM/YYYY'), 2);
 INSERT INTO employee (employee_id, title_id, last_name, first_name, gender, date_of_birth, department_id) VALUES (2, 3, 'Obeidat', 'Ahmad', 'Male', TO_DATE('02/05/1998', 'DD/MM/YYYY'), 2);
 INSERT INTO employee (employee_id, title_id, last_name, first_name, gender, date_of_birth, department_id) VALUES (3, 2, 'Hollins', 'Bruce', 'Male', TO_DATE('02/03/1991', 'DD/MM/YYYY'), 2);
@@ -60,13 +67,16 @@ INSERT INTO employee (employee_id, title_id, last_name, first_name, gender, date
 INSERT INTO employee (employee_id, title_id, last_name, first_name, gender, date_of_birth, department_id) VALUES (6, 6, 'Esanbi', 'Hania', 'Female', TO_DATE('01/12/2001', 'DD/MM/YYYY'), 1);
 INSERT INTO employee (employee_id, title_id, last_name, first_name, gender, date_of_birth, department_id) VALUES (7, 8, 'Jmali', 'Rita', 'Female', TO_DATE('12/07/2980', 'DD/MM/YYYY'), 3);
 INSERT INTO employee (employee_id, title_id, last_name, first_name, gender, date_of_birth, department_id) VALUES (8, 4, 'Jmali', 'Alaa', 'Male', TO_DATE('17/06/1984', 'DD/MM/YYYY'), 3);
-?
+select * from employee;
+
 INSERT INTO project (project_id, name, start_date) VALUES (1, 'New Toilets', TO_DATE('07/04/2020', 'DD/MM/YYYY'));
 INSERT INTO project (project_id, name, start_date) VALUES (2, 'Data Analysis', TO_DATE('20/12/2021', 'DD/MM/YYYY'));
 INSERT INTO project (project_id, name, start_date) VALUES (3, 'Bridge Project',TO_DATE('11/06/2021', 'DD/MM/YYYY'));
 INSERT INTO project (project_id, name, start_date) VALUES (4, 'Dance Party',TO_DATE('14/02/2021', 'DD/MM/YYYY'));
-?
+select * from project;
+
 INSERT INTO employee_project (employee_id, project_id) VALUES (2, 1);
 INSERT INTO employee_project (employee_id, project_id) VALUES (4, 2);
 INSERT INTO employee_project (employee_id, project_id) VALUES (5, 3);
 INSERT INTO employee_project (employee_id, project_id) VALUES (1, 4);
+select * from employee_project;

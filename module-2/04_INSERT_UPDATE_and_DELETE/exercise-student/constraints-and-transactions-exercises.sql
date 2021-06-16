@@ -67,6 +67,7 @@ VALUES((SELECT film_id FROM film WHERE title = 'Euclidean PI'),2);
 -- deleted from the film table. Delete "Euclidean PI" from the film table.
 -- (Did it succeed? Why?)
 -- <YOUR ANSWER HERE>
+-- failed due to being referenced in other tables.
 DELETE FROM film WHERE title = 'Euclidean PI'; 
 -- failed due to being referenced in other tables.
 -- 9. Delete Mathmagical from the category table.
@@ -83,7 +84,7 @@ DELETE FROM film_category WHERE category_id = 18;
 -- to delete "Euclidean PI".
 -- (Did either deletes succeed? Why?)
 -- <YOUR ANSWER HERE>
-
+-- failed due to being referenced in other tables.
 DELETE FROM category WHERE name = 'Mathmagical';
 
 DELETE FROM film WHERE title = 'Euclidean PI';
