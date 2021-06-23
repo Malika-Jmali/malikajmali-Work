@@ -12,25 +12,16 @@ public class AuctionService {
     public RestTemplate restTemplate = new RestTemplate();
     private final ConsoleService console = new ConsoleService();
 
-
     public Auction[] listAllAuctions() {
-        // api code here
-        return null;
+        return restTemplate.getForObject(BASE_URL, Auction[].class);  // this calls the url,
     }
-
-    public Auction listDetailsForAuction(int id) {
-        // api code here
-        return null;
+    public Auction listDetailsForAuction(int id) {  //http://localhost:3000/auctions/
+        return restTemplate.getForObject(BASE_URL + "/" + id ,Auction.class);
     }
-
-    public Auction[] findAuctionsSearchTitle(String title) {
-        // api code here
-        return null;
+    public Auction[] findAuctionsSearchTitle(String title) { //http://localhost:3000/auctions?title_like"
+        return restTemplate.getForObject(BASE_URL + "?title_like=" + title, Auction[].class);
     }
-
     public Auction[] findAuctionsSearchPrice(double price) {
-        // api code here
-        return null;
+        return restTemplate.getForObject(BASE_URL + "?currentBid_lte=" + price, Auction[].class);
     }
-
 }

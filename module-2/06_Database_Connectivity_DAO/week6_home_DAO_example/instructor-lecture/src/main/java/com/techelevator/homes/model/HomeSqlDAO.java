@@ -85,7 +85,13 @@ public class HomeSqlDAO implements HomeDAO{
 		
 		
 	}
+/*
+  List<Home> retrieveHomesForSale();
+    void addHome(Home home);
+    Home retrieveHomeByMLSId(String mlsId);
+    boolean deleteHome(String mlsId);
 
+*/
 
 
 	@Override

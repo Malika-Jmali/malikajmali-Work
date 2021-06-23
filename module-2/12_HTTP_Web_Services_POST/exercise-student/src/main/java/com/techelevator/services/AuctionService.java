@@ -63,20 +63,58 @@ public class AuctionService {
         }
         return auctions;
     }
-
+    //post
     public Auction add(String auctionString) {
-        // place code here
-        return null;
+        Auction addAuction = makeAuction(auctionString);
+        if (addAuction == null){
+            return null;
+        }
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+        HttpEntity<Auction> entity = new HttpEntity<>(addAuction, headers);
+        try {
+            addAuction = restTemplate.postForObject(API_URL, entity, Auction.class);
+        } catch (RestClientResponseException ex) {
+            console.printError(ex.getRawStatusCode() + " : " + ex.getStatusText());
+            return null;
+        } catch (ResourceAccessException ex) {
+            console.printError(ex.getMessage());
+            return null;
+        }
+        return addAuction;
     }
-
+    // updating PUT
     public Auction update(String auctionString) {
-        // place code here
-        return null;
+        Auction update = makeAuction(auctionString);
+        if (update == null) {
+            return null;
+        }
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+        HttpEntity<Auction> entity = new HttpEntity<>(update, headers); // this is where the entitly is coming from
+        try {
+            restTemplate.put(API_URL + "/" + update.getId(), entity);
+        } catch (RestClientResponseException ex) {
+            console.printError(ex.getRawStatusCode() + " : " + ex.getStatusText());
+            return null;
+        } catch (ResourceAccessException ex) {
+            console.printError(ex.getMessage());
+            return null;
+        }
+        return update;
     }
-
+    // delete  WAIT IS THIS A BOOLEAN
     public boolean delete(int id) throws RestClientResponseException, ResourceAccessException {
-        // place code here
-        return false;
+        try {
+            restTemplate.delete(API_URL + "/" + id);
+            return true;
+        } catch (RestClientResponseException ex) {
+            console.printError(ex.getRawStatusCode() + " : " + ex.getStatusText());//delate
+            return false;
+        } catch (ResourceAccessException ex) { //
+            console.printError(ex.getMessage());
+            return false;
+        }
     }
 
     private HttpEntity<Auction> makeEntity(Auction auction) {

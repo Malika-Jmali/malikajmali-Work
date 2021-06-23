@@ -22,10 +22,10 @@ public class JDBCCityDAO implements CityDAO {
 							   "VALUES(?, ?, ?, ?, ?)";
 		newCity.setId(getNextCityId());    // calling a private method to grab next item in the sequence and set on newCity object
 		jdbcTemplate.update(sqlInsertCity, newCity.getId(),
-										  newCity.getName(),
-										  newCity.getCountryCode(),
-										  newCity.getDistrict(),
-										  newCity.getPopulation());
+				newCity.getName(),
+				newCity.getCountryCode(),
+				newCity.getDistrict(),
+				newCity.getPopulation());
 	}
 
 	private long getNextCityId() {
