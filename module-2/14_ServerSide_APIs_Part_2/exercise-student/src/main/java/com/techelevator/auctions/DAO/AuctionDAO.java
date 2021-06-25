@@ -21,3 +21,8 @@ public interface AuctionDAO {
 
     void delete(int id) throws AuctionNotFoundException;
 }
+
+
+
+
+
