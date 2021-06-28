@@ -10,6 +10,8 @@ import com.techelevator.auctions.DAO.AuctionDAO;
 import com.techelevator.auctions.exception.AuctionNotFoundException;
 import com.techelevator.auctions.model.Auction;
 
+import javax.validation.Valid;
+
 @RestController
 @RequestMapping("/auctions")
 public class AuctionController {
@@ -41,10 +43,23 @@ public class AuctionController {
     }
 
 
+
+    // This is Step 2/4
+    @ResponseStatus(HttpStatus.CREATED)// this will return the stapocope
     @RequestMapping( path = "", method = RequestMethod.POST)
-    public Auction create(@RequestBody Auction auction) {
+    public Auction create(@Valid @RequestBody Auction auction) {  //STEP_4 @Valid
         return dao.create(auction);
     }
-
+    // Step 5
+    @RequestMapping( path = "/{id}", method = RequestMethod.PUT)
+    public Auction update (@Valid @RequestBody Auction auction, @PathVariable int id) throws AuctionNotFoundException {
+        return dao.update(auction, id);
+    }  //Dont put a DOT after the method
+    // Step 6
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    @RequestMapping( path = "/{id}", method = RequestMethod.DELETE )
+    public void delete(@PathVariable int id) throws AuctionNotFoundException {
+        dao.delete(id);
+    }
 
 }

@@ -1,6 +1,7 @@
 package com.techelevator.auctions.DAO;
 
 import com.techelevator.auctions.model.Auction;
+import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
