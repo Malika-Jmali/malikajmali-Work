@@ -1,0 +1,16 @@
+body {
+
+    font-family: arial;
+    color: #e0129c;
+    background-color: #86b1bd;
+    margin: 80px;
+}
+  
+  #image {
+  width: 60%;
+  height: auto;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  }
