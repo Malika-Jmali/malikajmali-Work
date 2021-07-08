@@ -1,8 +1,10 @@
 # CSS Flexbox Froggy Exercise
 
-In this exercise, you'll play the flexbox froggy game located at: https://flexboxfroggy.com.
+Play Flexbox Froggy (https://flexboxfroggy.com/) and screen capture your last frame. If we ask, be prepared to capture and send other frames. You don't log in, but results are stored in cookies on your browser.
 
-To prove you completed the exercise, you will use the honor system and submit a screenshot of you playing the game.  There are 24 levels. It is highly recommended that you complete all 24 levels. It is highly likely you will need to use flex layouts (in addition to grid) on your final capstones. 
+22 of the 24 frames would be 90% (full credit).
+
+Use "Snip & Sketch" on your laptop for screen capture.
 
 To turn the HW in, place the screenshot in your exercise folder for flexbox froggy and submit via bitbucket.
 
