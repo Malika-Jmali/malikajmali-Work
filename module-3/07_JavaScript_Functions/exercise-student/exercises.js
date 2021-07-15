@@ -100,12 +100,12 @@ function addAll() {
  *     streetNumber streetName streetType city state zip
  *
  * Use `map` and an anonymous function.
- */
+ */  //  return '${streetNumber} ${streetName} ${streetType} ${city} ${state} ${zip}';
 
  function getFullAddressesOfProperties(association) {
 
     return association.map( (address) => {
-      return '${streetNumber} ${streetName} ${streetType} ${city} ${state} ${zip}';
+  return address['streetNumber']+ ' '+ address['streetName']+ ' '+address['streetType']+ ' '+address['city']+ ' '+address['state']+ ' '+address['zip'];
     });
  }  
 /*
