@@ -1,6 +1,7 @@
 let should = chai.should();
 
 describe('dom-exercise', () => {
+ 
 
   it('page title is added to the DOM', () => {
     const title = document.getElementById('title');
