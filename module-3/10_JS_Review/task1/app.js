@@ -53,3 +53,10 @@ const homes =  [
 
 //write your code below
 
+function basic_forEach(homes) {
+  sum+= homes;
+  let sum =0;
+    const homes = ["MLS Id","zip code","price"];
+    homes.forEach(basic_forEach);
+    
+     }
