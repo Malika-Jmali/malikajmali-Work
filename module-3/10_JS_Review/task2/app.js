@@ -55,4 +55,6 @@ const homes =  [
  function basic_zip_filter(zipCode){
    let unfilteredArray = [43023, 43015, 43017, 43022];
    return unfilteredArray.filter(zipCode);
+   console.log(basic_zip_filter('43022'))
+   
  }

@@ -39,3 +39,4 @@ function displayGroceries() {
 
 setPageTitle();
 displayGroceries();
+
