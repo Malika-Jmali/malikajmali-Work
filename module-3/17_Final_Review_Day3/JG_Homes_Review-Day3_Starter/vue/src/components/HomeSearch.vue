@@ -6,7 +6,7 @@
         <input type="text" name="zip" v-model="zipFilter"/>
 
     </div> 
-    <div id="main-div">
+    <div id="main-div" v-if="!isLoading">
       <p v-if="filteredHomes.length == 0">No Results Found</p>
       <div class="divTable minimalistBlack" v-if="filteredHomes.length > 0">
         <div class="divTableHeading">
@@ -49,18 +49,19 @@ export default {
         return {
            zipFilter: '',
            homes: [],
+           isLoading: true,
 
         };
     },
     computed: {
         filteredHomes() {
            
-
            return this.homes.filter(home => {
                return this.zipFilter == '' ? true : this.zipFilter == home.address.zipCode;
            });
 
-        }
+        },
+
     },
     methods: {
         getImageURL(pic) {
@@ -70,6 +71,7 @@ export default {
     created() {
       homeService.retrieve().then(response => {
         this.homes = response.data;
+        this.isLoading = false;
       })
     }
 
