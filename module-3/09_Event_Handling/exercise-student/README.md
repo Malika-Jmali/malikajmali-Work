@@ -1,4 +1,4 @@
-# Event Handling Exercises
+npm run test# Event Handling Exercises
 
 ## Shopping List
 

@@ -12,7 +12,7 @@ const groceries = [
   { id: 9, name: 'Salad', completed: false },
   { id: 10, name: 'Tea', completed: false }
 ];
-
+ 
 /**
  * This function will get a reference to the title and set its text to the value
  * of the pageTitle variable that was set above.
@@ -21,7 +21,7 @@ function setPageTitle() {
   const title = document.getElementById('title');
   title.innerText = pageTitle;
 }
-
+ 
 /**
  * This function will loop over the array of groceries that was set above and add them to the DOM.
  */
@@ -36,7 +36,51 @@ function displayGroceries() {
     ul.appendChild(li);
   });
 }
-
+ 
+function markCompleted()
+{
+ const tasks = document.querySelectorAll('li');
+ tasks.forEach((task) => {
+   // when you click on a task mark it completed
+   task.addEventListener('click', () => {
+     if (!task.classList.contains('completed')) {
+       task.classList.add('completed');
+       task.querySelector('i').classList.add('completed');
+     }
+   });
+   // when you double click a task remove the completed class
+   task.addEventListener('dblclick', () => {
+     if (task.classList.contains('completed')) {
+       task.classList.remove('completed');
+       task.querySelector('i').classList.remove('completed');
+     }
+   });
+ });
+ 
+}
 setPageTitle();
 displayGroceries();
-
+markCompleted();
+ 
+ 
+document.addEventListener('DOMContentLoaded', () => {
+ const tasks = document.querySelectorAll('li');
+ const button = document.getElementById('toggleAll');
+ button.addEventListener('click', () => {
+   tasks.forEach((task) => {
+     if(allItemsIncomplete){
+     task.classList.add('completed');
+     task.querySelector('i').classList.add('completed');
+     button.innerHTML= "Mark All Incomplete";
+     
+   }
+   else{
+     task.classList.remove('completed');
+     task.querySelector('i').classList.remove('completed');
+     button.innerHTML= "Mark All Complete";
+   }
+ 
+ })
+ allItemsIncomplete = !allItemsIncomplete;
+})
+});
