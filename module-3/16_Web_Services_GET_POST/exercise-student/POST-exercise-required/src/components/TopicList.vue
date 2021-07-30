@@ -38,12 +38,28 @@ export default {
         this.$store.commit("SET_TOPICS", response.data);
       });
     },
-    deleteTopic(id) {}
+    deleteTopic(id) {
+      topicService
+      .delete(id)
+      .then(response => {
+        if (response.status === 200){
+          this.getTopics();
+        }
+      })
+      .catch(error => {
+        if (error.response.status === 404) {
+          this.$router.push("/404");
+        }else{
+          console.error(error);
+        }
+      });
   },
   created() {
     this.getTopics();
   }
+  }
 };
+
 </script>
 
 <style>

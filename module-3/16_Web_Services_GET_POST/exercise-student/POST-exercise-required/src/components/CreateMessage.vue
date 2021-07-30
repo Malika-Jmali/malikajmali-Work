@@ -32,8 +32,23 @@ export default {
   },
   methods: {
     saveMessage() {
-
+      messageService
+      .create(this.message)
+      .then(response=> {
+if (response.status=== 201) {
+  this.$router.push("/${message.topicId}");
+}
+     })
+     .catch(error=> {
+       console.error(error);
+     });
+    },
+    cancel() {
+      this.$router.push("/");
     }
+      
+
+    
   }
 };
 </script>
